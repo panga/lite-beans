@@ -9,8 +9,8 @@
   <version>1.0.0-SNAPSHOT</version>
 
   <name>lite-beans</name>
-  <description>LiteBeans is implementation of the java.beans package based on the Apache
-    Harmony project to be used in JDK 9+ as a replacement of java.desktop module.
+  <description>LiteBeans is implementation of the java.beans package based on the Apache Harmony
+    project
   </description>
   <url>https://github.com/panga/lite-beans</url>
 

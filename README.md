@@ -1,6 +1,6 @@
 # LiteBeans Project
 
-**LiteBeans** is implementation of the `java.beans` package based on the [Apache Harmony](https://github.com/apache/harmony) project to be used in JDK 9+ as a replacement of `java.desktop` module.
+**LiteBeans** is implementation of the `java.beans` package based on the [Apache Harmony](https://github.com/apache/harmony) project.
 
 ## Problem
 
