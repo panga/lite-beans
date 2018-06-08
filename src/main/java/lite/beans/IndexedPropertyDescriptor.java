@@ -45,7 +45,7 @@ public class IndexedPropertyDescriptor extends PropertyDescriptor {
      *            the name of the indexed getter.
      * @param indexedSetterName
      *            the name of the indexed setter.
-     * @throws IntrospectionException
+     * @throws IntrospectionException exception
      */
     public IndexedPropertyDescriptor(String propertyName, Class<?> beanClass,
             String getterName, String setterName, String indexedGetterName,
@@ -110,7 +110,7 @@ public class IndexedPropertyDescriptor extends PropertyDescriptor {
      *            the indexed getter
      * @param indexedSetter
      *            the indexed setter
-     * @throws IntrospectionException
+     * @throws IntrospectionException exception
      */
     public IndexedPropertyDescriptor(String propertyName, Method getter,
             Method setter, Method indexedGetter, Method indexedSetter)
@@ -137,7 +137,7 @@ public class IndexedPropertyDescriptor extends PropertyDescriptor {
      *            the specified indexed property's name.
      * @param beanClass
      *            the bean class.
-     * @throws IntrospectionException
+     * @throws IntrospectionException exception
      */
     public IndexedPropertyDescriptor(String propertyName, Class<?> beanClass)
             throws IntrospectionException {
@@ -152,7 +152,7 @@ public class IndexedPropertyDescriptor extends PropertyDescriptor {
      * 
      * @param indexedGetter
      *            the specified indexed getter.
-     * @throws IntrospectionException
+     * @throws IntrospectionException exception
      */
     public void setIndexedReadMethod(Method indexedGetter)
             throws IntrospectionException {
@@ -164,7 +164,7 @@ public class IndexedPropertyDescriptor extends PropertyDescriptor {
      * 
      * @param indexedSetter
      *            the specified indexed setter.
-     * @throws IntrospectionException
+     * @throws IntrospectionException exception
      */
     public void setIndexedWriteMethod(Method indexedSetter)
             throws IntrospectionException {
@@ -195,7 +195,7 @@ public class IndexedPropertyDescriptor extends PropertyDescriptor {
      * equal if the reader, indexed reader, writer, indexed writer, property
      * types, indexed property type, property editor and flags are equal.
      * 
-     * @param obj
+     * @param obj obj
      * @return true if this indexed property descriptor is equal to the
      *         specified object.
      */

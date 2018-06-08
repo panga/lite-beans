@@ -34,7 +34,7 @@ import java.util.IdentityHashMap;
  * all objects it references. The copy process continues recursively util every object in the object graph has its new
  * copy and the new version has the same state as the old version. All statements used to create those new objects and
  * executed on them during the process form the result of encoding.
- * </p>
+ * 
  */
 public class Encoder {
 
@@ -107,7 +107,7 @@ public class Encoder {
      * <p>
      * Strings are special objects which have their new copy by default, so if the old object is a string, it is
      * returned directly.
-     * </p>
+     * 
      *
      * @param old an old object
      * @return the new copy of the given old object, or null if there is not one.
@@ -124,7 +124,7 @@ public class Encoder {
      * <p>
      * An encoder always have a non-null exception listener. A default exception listener is used when the encoder is
      * created.
-     * </p>
+     * 
      *
      * @return the exception listener of this encoder
      */
@@ -157,7 +157,7 @@ public class Encoder {
      * <li>If none of the above applies, the
      * <code>DefaultPersistenceDelegate</code> is returned.</li>
      * </ol>
-     * </p>
+     * 
      *
      * @param type a class type
      * @return a <code>PersistenceDelegate</code> for the given class type
@@ -216,6 +216,9 @@ public class Encoder {
 
     /**
      * Register the <code>PersistenceDelegate</code> of the specified type.
+     *
+     * @param type type
+     * @param delegate delegate
      */
     public void setPersistenceDelegate(Class<?> type,
         PersistenceDelegate delegate) {
@@ -266,19 +269,19 @@ public class Encoder {
      * <p>
      * The implementation first check the return value of the expression. If there exists a new version of the object,
      * simply return.
-     * </p>
+     * 
      * <p>
      * A new expression is created using the new versions of the target and the arguments. If any of the old objects do
      * not have its new version yet,
      * <code>writeObject()</code> is called to create the new version.
-     * </p>
+     * 
      * <p>
      * The new expression is then executed to obtained a new copy of the old return value.
-     * </p>
+     * 
      * <p>
      * Call <code>writeObject()</code> with the old return value, so that more statements will be executed on its new
      * version to change it into the same state as the old value.
-     * </p>
+     * 
      *
      * @param oldExp the expression to write. The target, arguments, and return value of the expression are all old
      * objects.
@@ -316,7 +319,7 @@ public class Encoder {
      * <p>
      * The implementation simply finds the <code>PersistenceDelegate</code> responsible for the object's class, and
      * delegate the call to it.
-     * </p>
+     * 
      *
      * @param o the object to encode
      */
@@ -333,10 +336,10 @@ public class Encoder {
      * A new statement is created by using the new versions of the target and arguments. If any of the objects do not
      * have its new copy yet,
      * <code>writeObject()</code> is called to create one.
-     * </p>
+     * 
      * <p>
      * The new statement is then executed to change the state of the new object.
-     * </p>
+     * 
      *
      * @param oldStat a statement of old objects
      */

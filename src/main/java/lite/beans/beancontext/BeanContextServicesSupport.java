@@ -77,7 +77,7 @@ public class BeanContextServicesSupport extends BeanContextSupport implements
      * <p>
      * This class keeps records of all services requests submitted by this
      * child.
-     * </p>
+     * 
      * 
      */
     protected class BCSSChild extends BeanContextSupport.BCSChild {
@@ -100,7 +100,7 @@ public class BeanContextServicesSupport extends BeanContextSupport implements
      * <p>
      * This class is used by <code>BeanContextServicesSupport</code> to access
      * services provided by its parent context (if there is one).
-     * </p>
+     * 
      * 
      */
     protected class BCSSProxyServiceProvider implements
@@ -185,7 +185,7 @@ public class BeanContextServicesSupport extends BeanContextSupport implements
      * specific information about each registered service.
      * <p>
      * This class holds a reference to the service provider of the service.
-     * </p>
+     * 
      * 
      */
     protected static class BCSSServiceProvider implements Serializable {
@@ -308,7 +308,7 @@ public class BeanContextServicesSupport extends BeanContextSupport implements
     /*
      * (non-Javadoc)
      * 
-     * @see com.googlecode.openbeans.beancontext.BeanContextServices#addBeanContextServicesListener(com.googlecode.openbeans.beancontext.BeanContextServicesListener)
+     * @see BeanContextServices#addBeanContextServicesListener(BeanContextServicesListener)
      */
     public void addBeanContextServicesListener(
             BeanContextServicesListener listener) {
@@ -324,7 +324,7 @@ public class BeanContextServicesSupport extends BeanContextSupport implements
      * Add a service to this context.
      * <p>
      * Delegate to <code>addService(serviceClass, provider, true)</code>.
-     * </p>
+     * 
      * 
      * @see BeanContextServices#addService(java.lang.Class,
      *      BeanContextServiceProvider)
@@ -339,7 +339,7 @@ public class BeanContextServicesSupport extends BeanContextSupport implements
      * <p>
      * If the service already exists in the context, simply return false.
      * Otherwise, the service is added and event is fired if required.
-     * </p>
+     * 
      * 
      * @param serviceClass
      *            the service class
@@ -396,7 +396,7 @@ public class BeanContextServicesSupport extends BeanContextSupport implements
      * First a <code>int</code> is read, indicating the number of services to
      * read. Then pairs of service class and service provider are read one by
      * one.
-     * </p>
+     * 
      * 
      * @see BeanContextSupport#bcsPreDeserializationHook(java.io.ObjectInputStream)
      */
@@ -423,7 +423,7 @@ public class BeanContextServicesSupport extends BeanContextSupport implements
      * First a <code>int</code> is writtern, indicating the number of
      * serializable services. Then pairs of service class and service provider
      * are writtern one by one.
-     * </p>
+     * 
      * 
      * @see BeanContextSupport#bcsPreSerializationHook(java.io.ObjectOutputStream)
      */
@@ -449,7 +449,7 @@ public class BeanContextServicesSupport extends BeanContextSupport implements
      * This method is called everytime a child is removed from this context.
      * <p>
      * The implementation releases all services requested by the child.
-     * </p>
+     * 
      * 
      * @see BeanContextSupport#childJustRemovedHook(java.lang.Object,
      *      BeanContextSupport.BCSChild)
@@ -666,7 +666,7 @@ public class BeanContextServicesSupport extends BeanContextSupport implements
      *         context
      * @throws IllegalArgumentException
      *             if <code>child</code> is not a child of this context
-     * @throws TooManyListenersException
+     * @throws TooManyListenersException exception
      * @see BeanContextServices#getService(BeanContextChild,
      *      java.lang.Object, java.lang.Class, java.lang.Object,
      *      BeanContextServiceRevokedListener)
@@ -753,7 +753,7 @@ public class BeanContextServicesSupport extends BeanContextSupport implements
     /*
      * (non-Javadoc)
      * 
-     * @see com.googlecode.openbeans.beancontext.BeanContextSupport#initialize()
+     * @see BeanContextSupport#initialize()
      */
     public void initialize() {
         super.initialize();
@@ -875,7 +875,7 @@ public class BeanContextServicesSupport extends BeanContextSupport implements
     /*
      * (non-Javadoc)
      * 
-     * @see com.googlecode.openbeans.beancontext.BeanContextServices#removeBeanContextServicesListener(com.googlecode.openbeans.beancontext.BeanContextServicesListener)
+     * @see BeanContextServices#removeBeanContextServicesListener(BeanContextServicesListener)
      */
     public void removeBeanContextServicesListener(
             BeanContextServicesListener listener) {
@@ -893,7 +893,7 @@ public class BeanContextServicesSupport extends BeanContextSupport implements
      * The given service provider is unregistered and a
      * <code>BeanContextServiceRevokedEvent</code> is fired. All registered
      * service listeners and current service users get notified.
-     * </p>
+     * 
      * 
      * @param serviceClass
      *            the service class
@@ -1028,12 +1028,12 @@ public class BeanContextServicesSupport extends BeanContextSupport implements
 
     /**
      * The implementation goes through following steps:
-     * <p>
+     *
      * <ol>
      * <li>Calls <code>defaultWriteObject()</code>.</li>
      * <li>Writes out serializable service listeners.</li>
      * </ol>
-     * </p>
+     * 
      * 
      * @param oos
      *            the object output stream
@@ -1051,12 +1051,12 @@ public class BeanContextServicesSupport extends BeanContextSupport implements
 
     /**
      * The implementation goes through following steps:
-     * <p>
+     *
      * <ol>
      * <li>Calls <code>defaultReadObject()</code>.</li>
      * <li>Reads serializable service listeners.</li>
      * </ol>
-     * </p>
+     * 
      * 
      * @param ois
      *            the object input stream

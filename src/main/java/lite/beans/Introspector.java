@@ -22,12 +22,12 @@ import java.util.Map;
 import java.util.WeakHashMap;
 
 /**
- * The <code>Introspector</code> is a utility for developers to figure out
+ * The Introspector is a utility for developers to figure out
  * which properties, events, and methods a JavaBean supports.
  * <p>
- * The <code>Introspector</code> class walks over the class/superclass chain
+ * The Introspector class walks over the class/superclass chain
  * of the target bean class. At each level it checks if there is a matching
- * <code>BeanInfo</code> class which provides explicit information about the
+ * BeanInfo class which provides explicit information about the
  * bean, and if so uses that explicit information. Otherwise it uses the low
  * level reflection APIs to study the target class and uses design patterns to
  * analyze its behaviour and then proceeds to continue the introspection with
@@ -36,19 +36,19 @@ import java.util.WeakHashMap;
  * <p>
  * To look for the explicit information of a bean:
  * </p>
- * <ol>
- * <li>The <code>Introspector</code> appends "BeanInfo" to the qualified name
+ * 
+ * The Introspector appends "BeanInfo" to the qualified name
  * of the bean class, try to use the new class as the "BeanInfo" class. If the
  * "BeanInfo" class exsits and returns non-null value when queried for explicit
- * information, use the explicit information</li>
- * <li>If the first step fails, the <code>Introspector</code> will extract a
+ * information, use the explicit information
+ * If the first step fails, the Introspector will extract a
  * simple class name of the bean class by removing the package name from the
  * qualified name of the bean class, append "BeanInfo" to it. And look for the
  * simple class name in the packages defined in the "BeanInfo" search path (The
- * default "BeanInfo" search path is <code>sun.beans.infos</code>). If it
+ * default "BeanInfo" search path is sun.beans.infos). If it
  * finds a "BeanInfo" class and the "BeanInfo" class returns non-null value when
- * queried for explicit information, use the explicit information</li>
- * </ol>
+ * queried for explicit information, use the explicit information
+ * 
  * 
  */
 //ScrollPane cannot be introspected correctly
@@ -56,20 +56,20 @@ public class Introspector extends java.lang.Object {
 
     // Public fields
     /**
-     * Constant values to indicate that the <code>Introspector</code> will
-     * ignore all <code>BeanInfo</code> class.
+     * Constant values to indicate that the Introspector will
+     * ignore all BeanInfo class.
      */
     public static final int IGNORE_ALL_BEANINFO = 3;
 
     /**
-     * Constant values to indicate that the <code>Introspector</code> will
-     * ignore the <code>BeanInfo</code> class of the current bean class.
+     * Constant values to indicate that the Introspector will
+     * ignore the BeanInfo class of the current bean class.
      */
     public static final int IGNORE_IMMEDIATE_BEANINFO = 2;
 
     /**
-     * Constant values to indicate that the <code>Introspector</code> will use
-     * all <code>BeanInfo</code> class which have been found. This is the default one.
+     * Constant values to indicate that the Introspector will use
+     * all BeanInfo class which have been found. This is the default one.
      */
     public static final int USE_ALL_BEANINFO = 1;
 
@@ -91,10 +91,10 @@ public class Introspector extends java.lang.Object {
 
     /**
      * Decapitalizes a given string according to the rule:
-     * <ul>
-     * <li>If the first or only character is Upper Case, it is made Lower Case
-     * <li>UNLESS the second character is also Upper Case, when the String is
-     * returned unchanged <eul>
+     * 
+     * If the first or only character is Upper Case, it is made Lower Case
+     * UNLESS the second character is also Upper Case, when the String is
+     * returned unchanged 
      * 
      * @param name -
      *            the String to decapitalize
@@ -118,7 +118,7 @@ public class Introspector extends java.lang.Object {
     }
 
     /**
-     * Flushes all <code>BeanInfo</code> caches.
+     * Flushes all BeanInfo caches.
      *  
      */
     public static void flushCaches() {
@@ -128,7 +128,7 @@ public class Introspector extends java.lang.Object {
     }
 
     /**
-     * Flushes the <code>BeanInfo</code> caches of the specified bean class
+     * Flushes the BeanInfo caches of the specified bean class
      * 
      * @param clazz
      *            the specified bean class
@@ -141,19 +141,19 @@ public class Introspector extends java.lang.Object {
     }
 
     /**
-	 * Gets the <code>BeanInfo</code> object which contains the information of
+	 * Gets the BeanInfo object which contains the information of
 	 * the properties, events and methods of the specified bean class.
 	 * 
 	 * <p>
-	 * The <code>Introspector</code> will cache the <code>BeanInfo</code>
+	 * The Introspector will cache the BeanInfo
 	 * object. Subsequent calls to this method will be answered with the cached
 	 * data.
 	 * </p>
 	 * 
 	 * @param beanClass
 	 *            the specified bean class.
-	 * @return the <code>BeanInfo</code> of the bean class.
-	 * @throws IntrospectionException
+	 * @return the BeanInfo of the bean class.
+	 * @throws IntrospectionException exception
 	 */
     public static BeanInfo getBeanInfo(Class<?> beanClass)
             throws IntrospectionException {
@@ -166,12 +166,12 @@ public class Introspector extends java.lang.Object {
     }
 
     /**
-     * Gets the <code>BeanInfo</code> object which contains the information of
+     * Gets the BeanInfo object which contains the information of
      * the properties, events and methods of the specified bean class. It will
      * not introspect the "stopclass" and its super class.
      * 
      * <p>
-     * The <code>Introspector</code> will cache the <code>BeanInfo</code>
+     * The Introspector will cache the BeanInfo
      * object. Subsequent calls to this method will be answered with the cached
      * data.
      * </p>
@@ -181,8 +181,8 @@ public class Introspector extends java.lang.Object {
      * @param stopClass
      *            the sopt class which should be super class of the bean class.
      *            May be null.
-     * @return the <code>BeanInfo</code> of the bean class.
-     * @throws IntrospectionException
+     * @return the BeanInfo of the bean class.
+     * @throws IntrospectionException exception
      */
     public static BeanInfo getBeanInfo(Class<?> beanClass, Class<?> stopClass)
             throws IntrospectionException {
@@ -194,21 +194,21 @@ public class Introspector extends java.lang.Object {
     }
 
     /**
-     * Gets the <code>BeanInfo</code> object which contains the information of
+     * Gets the BeanInfo object which contains the information of
      * the properties, events and methods of the specified bean class.
-     * <ol>
-     * <li>If <code>flag==IGNORE_ALL_BEANINFO</code>, the
-     * <code>Introspector</code> will ignore all <code>BeanInfo</code>
-     * class.</li>
-     * <li>If <code>flag==IGNORE_IMMEDIATE_BEANINFO</code>, the
-     * <code>Introspector</code> will ignore the <code>BeanInfo</code> class
-     * of the current bean class.</li>
-     * <li>If <code>flag==USE_ALL_BEANINFO</code>, the
-     * <code>Introspector</code> will use all <code>BeanInfo</code> class
-     * which have been found.</li>
-     * </ol>
+     * 
+     * If flag==IGNORE_ALL_BEANINFO, the
+     * Introspector will ignore all BeanInfo
+     * class.
+     * If flag==IGNORE_IMMEDIATE_BEANINFO, the
+     * Introspector will ignore the BeanInfo class
+     * of the current bean class.
+     * If flag==USE_ALL_BEANINFO, the
+     * Introspector will use all BeanInfo class
+     * which have been found.
+     * 
      * <p>
-	 * The <code>Introspector</code> will cache the <code>BeanInfo</code>
+	 * The Introspector will cache the BeanInfo
 	 * object. Subsequent calls to this method will be answered with the cached
 	 * data.
      * </p>
@@ -217,9 +217,9 @@ public class Introspector extends java.lang.Object {
      *            the specified bean class.
      * @param flags
      *            the flag to control the usage of the explicit
-     *            <code>BeanInfo</code> class.
-     * @return the <code>BeanInfo</code> of the bean class.
-     * @throws IntrospectionException
+     *            BeanInfo class.
+     * @return the BeanInfo of the bean class.
+     * @throws IntrospectionException exception
      */
     public static BeanInfo getBeanInfo(Class<?> beanClass, int flags)
             throws IntrospectionException {

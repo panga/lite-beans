@@ -18,7 +18,6 @@
 package lite.beans;
 
 import lite.beans.beancontext.BeanContext;
-import java.beans.AppletInitializer;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
@@ -97,6 +96,8 @@ public class Beans {
      * @param loader the specified class loader. It can be null.
      * @param name the name of the JavaBean
      * @return an isntance of the bean.
+     * @throws IOException exception
+     * @throws ClassNotFoundException exception
      */
     public static Object instantiate(ClassLoader loader, String name)
         throws IOException, ClassNotFoundException {
@@ -115,6 +116,8 @@ public class Beans {
      * @param beanName the name of the JavaBean
      * @param beanContext the beancontext in which the bean instance will be added.
      * @return an instance of the specified JavaBean.
+     * @throws IOException exception
+     * @throws ClassNotFoundException exception
      */
     public static Object instantiate(ClassLoader cls, String beanName,
         BeanContext beanContext) throws IOException, ClassNotFoundException {
@@ -152,7 +155,7 @@ public class Beans {
      * <code>Beans</code> will set the default AppletStub and AppletContext
      * for the applet bean (If the specified <code>AppletInitializer</code> is not null, <code>Beans</code> will call
      * the
-     * <code>AppletInitializer.initialize</code> to set the default AppletStub
+     * <code>Object.initialize</code> to set the default AppletStub
      * and AppletContext for the applet bean). Second, <code>Beans</code> will call the <code>init</code> method of the
      * applet. (If the applet bean is loaded as a serialized object, the <code>init</code> method will not be called.)
      * </p>
@@ -162,9 +165,11 @@ public class Beans {
      * @param context the beancontext in which the bean instance will be added.
      * @param initializer the AppletInitializer for applet bean instance.
      * @return Obtains an instance of the JavaBean.
+     * @throws IOException exception
+     * @throws ClassNotFoundException exception
      */
     public static Object instantiate(ClassLoader cls, String beanName,
-        BeanContext context, AppletInitializer initializer)
+        BeanContext context, Object initializer)
         throws IOException, ClassNotFoundException {
         return internalInstantiate(cls, beanName, context, initializer);
     }
